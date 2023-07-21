@@ -60,8 +60,8 @@ __attribute__((constructor)) static void init(void) {
 	slot_dot_selected = GFX_loadImage("slot-dot-selected.png");
 	arrow = GFX_loadImage("arrow.png");
 	arrow_highlighted = GFX_loadImage("arrow-highlighted.png");
-	no_preview = GFX_getText("No Preview", 0, 1);
-	empty_slot = GFX_getText("Empty Slot", 0, 1);
+	no_preview = GFX_getText("No Preview", 0, 0);
+	empty_slot = GFX_getText("Empty Slot", 0, 0);
 }
 __attribute__((destructor)) static void quit(void) {
 	SDL_FreeSurface(overlay);
@@ -422,7 +422,7 @@ MenuReturnStatus ShowMenu(char* rom_path, char* save_path_template, SDL_Surface*
 	SDL_FillRect(cache, &(SDL_Rect){0,0,Screen.width,Screen.menu.bar_height}, 0);
 	GFX_blitRule(cache, Screen.menu.rule.top_y);
 
-	GFX_blitText(cache, rom_name, 1, Screen.menu.title.x, Screen.menu.title.y, Screen.menu.title.width, 1, 0);
+	GFX_blitText(cache, rom_name, 1, Screen.menu.title.x, Screen.menu.title.y, Screen.menu.title.width, 0, 0);
 	
 	GFX_blitWindow(cache, Screen.menu.window.x, Screen.menu.window.y, Screen.menu.window.width, Screen.menu.window.height, 1);
 	

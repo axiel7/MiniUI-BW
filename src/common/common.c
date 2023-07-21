@@ -624,14 +624,14 @@ int GFX_scrollMenu(SDL_Surface* surface, char* name, char* path, char* unique, i
 	}
 	
 	// bar
-	SDL_FillRect(surface, &(SDL_Rect){0,Screen.main.list.y+(row*Screen.main.list.row_height),Screen.width,Screen.main.list.row_height}, SDL_MapRGB(surface->format, GOLD_TRIAD));
+	SDL_FillRect(surface, &(SDL_Rect){0,Screen.main.list.y+(row*Screen.main.list.row_height),Screen.width,Screen.main.list.row_height}, SDL_MapRGB(surface->format, WHITE_TRIAD));
 	
 	// shadow
 	SDL_BlitSurface(text, &(SDL_Rect){scroll_ox,0,max_width,text->h}, surface, &(SDL_Rect){Screen.main.list.ox+Screen.font.shadow.ox,Screen.main.list.y+(row*Screen.main.list.row_height)+Screen.main.list.oy+Screen.font.shadow.oy});
 	SDL_FreeSurface(text);
 	
 	// actual text
-	text = TTF_RenderUTF8_Blended(font_l, display_name, white);
+	text = TTF_RenderUTF8_Blended(font_l, display_name, gold);
 	SDL_BlitSurface(text, &(SDL_Rect){scroll_ox,0,max_width,text->h}, surface, &(SDL_Rect){Screen.main.list.ox,Screen.main.list.y+(row*Screen.main.list.row_height)+Screen.main.list.oy});
 	SDL_FreeSurface(text);
 	return 1;
@@ -686,7 +686,7 @@ void GFX_blitBodyCopy(SDL_Surface* surface, char* str, int ox, int oy, int width
 		
 		
 		if (len) {
-			text = TTF_RenderUTF8_Blended(font_l, line, gold);
+			text = TTF_RenderUTF8_Blended(font_l, line, white);
 			int x = ox;
 			x += (width - text->w) / 2;
 			SDL_BlitSurface(text, NULL, surface, &(SDL_Rect){x,y});

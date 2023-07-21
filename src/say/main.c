@@ -8,7 +8,7 @@
 #include <sys/mman.h>
 #include <unistd.h>
 
-#define GOLD_TRIAD 0xd2,0xb4,0x6c
+#define GOLD_TRIAD 0xff,0xff,0xff
 #define kTextBoxMaxRows 8
 #define kTextLineLength 256
 #define kLineHeight 48
